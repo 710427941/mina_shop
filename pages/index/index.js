@@ -12,7 +12,8 @@ Page({
   data: {
     banner:[],
     domian: app.globalData.domian + 'uploads/',
-    randmos:''
+    randmos:'',
+    ad:[]
   },
 
   /**
@@ -21,28 +22,42 @@ Page({
   onLoad: function (options) {
     this.loadIndex()
     this.createRandom()
+    this.loadAd()
   },
-  loadIndex:function(){
+  loadIndex() {
     var url = 'Index/index'
     var params = {}
     var method = 'get'
     service.service(url,params,method,data=>{
       if(data.code == 200 && data.result){
+        console.log(data.result)
         this.setData({
           banner:data.result
         })
       }
     }, data => { }, data => { })
   },
-  createRandom:function(){
+  loadAd() {
+    var url = 'Index/indexAd' 
+    var params = {}
+    var method = 'get'
+    service.service(url, params, method,data=>{
+      console.log(data.result)
+      if(data.code == 200 && data.result){
+        this.setData({
+          ad:data.result
+        })
+      }
+    }, data => { }, data => { })
+  },
+  createRandom() {
     this.setData({
       randmos: util.randmo()
     })
   }, 
-  search:function(e){
+  search(e) {
     console.log(e)
   },
-  searchGoods:function(){
-    
+  searchGoods() {
   }
 })

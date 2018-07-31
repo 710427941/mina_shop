@@ -33,13 +33,31 @@
 .func-area .func-area-li{
   width: 25%;
   text-align: center;
+  margin-bottom: 30rpx;
 }
 
 .func-area .func-area-li image{
   width: 80%;
+  margin: 0 auto;
+  height: 120rpx;
 }
 
 .func-area .func-area-li text{
   font-size: 28rpx;
   color: #888;
+  display: block;
+}
+
+.ad-list{
+  display: flex;
+  flex-flow: wrap;
+}
+
+.ad-list .ad-list-img{
+  width: 50%;
+}
+
+.ad-list .ad-list-img image{
+  width: 100%;
+  height: 200rpx;
 }

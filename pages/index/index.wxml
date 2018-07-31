@@ -9,7 +9,7 @@
 
 <view class="view-search">
   <view class='view-search-bg'>
-    <input placeholder="请输入搜索商品" placeholder-style='#99' class='input-search' bindinput='search' bindconfirm='searchGoods'></input>
+    <input placeholder="请输入搜索商品" placeholder-style='#888' class='input-search' bindinput='search' bindconfirm='searchGoods'></input>
   </view>
 </view>
 
@@ -47,4 +47,9 @@
     <text>关于我们</text>
   </view>
 
+</view>
+<view class='ad-list'>
+  <block wx:for="{{ad}}" wx:key="{{item.id}}">
+    <view class='ad-list-img'><image src='{{domian}}{{item.img}}?{{randmos}}' mode='aspectFit'></image></view>  
+  </block>
 </view>
