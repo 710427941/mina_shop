@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+/**
+ * 生成随机数
+ */
+
+const createNoceStr = function(){
+  var randmo = Math.random().toString().substr(2,15)
+  return randmo
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  randmo: createNoceStr
 }

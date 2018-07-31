@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const service = require('../../utils/service.js')
+const util = require('../../utils/util.js')
 const app = getApp()
 
 Page({
@@ -10,7 +11,8 @@ Page({
    */
   data: {
     banner:[],
-    domian: app.globalData.domian + 'uploads/'
+    domian: app.globalData.domian + 'uploads/',
+    randmos:''
   },
 
   /**
@@ -18,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     this.loadIndex()
+    this.createRandom()
   },
   loadIndex:function(){
     var url = 'Index/index'
@@ -30,5 +33,16 @@ Page({
         })
       }
     }, data => { }, data => { })
+  },
+  createRandom:function(){
+    this.setData({
+      randmos: util.randmo()
+    })
+  }, 
+  search:function(e){
+    console.log(e)
+  },
+  searchGoods:function(){
+    
   }
 })

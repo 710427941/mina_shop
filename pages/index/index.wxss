@@ -4,3 +4,42 @@
   width: 750rpx;
   height: 300rpx;
 }
+
+.view-search{
+  margin: 20rpx;
+  height: 80rpx;
+  border:1px solid #f1f1f1;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+}
+
+.view-search-bg{
+  background-color: #f9f9f9;
+  height: 80rpx;
+}
+
+.input-search{
+  font-size: 32rpx;
+  height: 80rpx;
+  padding: 0 10rpx;
+}
+
+.func-area{
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+}
+
+.func-area .func-area-li{
+  width: 25%;
+  text-align: center;
+}
+
+.func-area .func-area-li image{
+  width: 80%;
+}
+
+.func-area .func-area-li text{
+  font-size: 28rpx;
+  color: #888;
+}

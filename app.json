@@ -1,11 +1,46 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/index/index",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/member/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "问君老酸奶",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color":"#888",
+    "selectedColor":"#06bd04",
+    "borderStyle":"white",
+    "backgroundColor":"#fbfaf7",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"images/icon_home.png",
+        "selectedIconPath":"images/icon_home_selected.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/icon_cate.png",
+        "selectedIconPath": "images/icon_cate_selected.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/icon_cart.png",
+        "selectedIconPath": "images/icon_cart_selected.png"
+      },
+      {
+        "pagePath": "pages/member/index/index",
+        "text": "我的",
+        "iconPath": "images/icon_member.png",
+        "selectedIconPath": "images/icon_member_selected.png"
+      }
+    ]
   }
 }

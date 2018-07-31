@@ -2,7 +2,49 @@
 <swiper indicator-dots autoplay interval="5000" duration="1000">
   <block wx:for="{{banner}}" wx:key="{{item.id}}">
     <swiper-item>
-      <image src="{{domian}}{{item.img}}" class="slide-image"/>
+      <image src="{{domian}}{{item.img}}?{{randmos}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
+
+<view class="view-search">
+  <view class='view-search-bg'>
+    <input placeholder="请输入搜索商品" placeholder-style='#99' class='input-search' bindinput='search' bindconfirm='searchGoods'></input>
+  </view>
+</view>
+
+<view class='func-area'>
+  <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_all.png' mode='aspectFit'></image>
+    <text>全部分类</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_carticon.png' mode='aspectFit'></image>
+    <text>购物车</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_seller.png' mode='aspectFit'></image>
+    <text>地址管理</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_shopping.png' mode='aspectFit'></image>
+    <text>我的钱包</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_orders.png' mode='aspectFit'></image>
+    <text>我的订单</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_ssc.png' mode='aspectFit'></image>
+    <text>我的收藏</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_collect.png' mode='aspectFit'></image>
+    <text>个人中心</text>
+  </view>
+   <view bindtap='' class='func-area-li'>
+    <image src='/images/icon_membericon.png' mode='aspectFit'></image>
+    <text>关于我们</text>
+  </view>
+
+</view>

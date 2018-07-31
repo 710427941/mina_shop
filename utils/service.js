@@ -1,5 +1,7 @@
 
-
+/**
+ * wxRequest请求封装
+ * */
 const service = (url,params,method,successsCallback,errorCallback,completeCallback)=>{
   wx.request({
     url: getApp().globalData.domian + 'index.php/api/' + url,
