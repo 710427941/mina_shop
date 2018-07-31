@@ -5,59 +5,59 @@
   height: 300rpx;
 }
 
-.view-search{
+.view-search {
   margin: 20rpx;
   height: 80rpx;
-  border:1px solid #f1f1f1;
+  border: 1px solid #f1f1f1;
   border-radius: 10rpx;
   line-height: 80rpx;
 }
 
-.view-search-bg{
+.view-search-bg {
   background-color: #f9f9f9;
   height: 80rpx;
 }
 
-.input-search{
+.input-search {
   font-size: 32rpx;
   height: 80rpx;
   padding: 0 10rpx;
 }
 
-.func-area{
+.func-area {
   display: flex;
   flex-flow: wrap;
   width: 100%;
 }
 
-.func-area .func-area-li{
+.func-area .func-area-li {
   width: 25%;
   text-align: center;
   margin-bottom: 30rpx;
 }
 
-.func-area .func-area-li image{
+.func-area .func-area-li image {
   width: 80%;
   margin: 0 auto;
   height: 120rpx;
 }
 
-.func-area .func-area-li text{
+.func-area .func-area-li text {
   font-size: 28rpx;
   color: #888;
   display: block;
 }
 
-.ad-list{
+.ad-list {
   display: flex;
   flex-flow: wrap;
 }
 
-.ad-list .ad-list-img{
+.ad-list .ad-list-img {
   width: 50%;
 }
 
-.ad-list .ad-list-img image{
+.ad-list .ad-list-img image {
   width: 100%;
   height: 200rpx;
 }
