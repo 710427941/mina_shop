@@ -11,9 +11,11 @@ Page({
    */
   data: {
     banner: [],
+    ad: [],
+    goods:[],
     domian: app.globalData.domian + 'uploads/',
     randmos: '',
-    ad: []
+    
   },
 
   /**
@@ -22,34 +24,22 @@ Page({
   onLoad: function(options) {
     this.loadIndex()
     this.createRandom()
-    this.loadAd()
   },
   loadIndex() {
     var url = 'Index/index'
     var params = {}
     var method = 'get'
     service.service(url, params, method, data => {
-      if (data.code == 200 && data.result) {
-        console.log(data.result)
+      if (data.code == 200) {
         this.setData({
-          banner: data.result
+          banner: data.banner,
+          ad:data.ad,
+          goods:data.goods
         })
       }
     }, data => {}, data => {})
   },
-  loadAd() {
-    var url = 'Index/indexAd'
-    var params = {}
-    var method = 'get'
-    service.service(url, params, method, data => {
-      console.log(data.result)
-      if (data.code == 200 && data.result) {
-        this.setData({
-          ad: data.result
-        })
-      }
-    }, data => {}, data => {})
-  },
+
   createRandom() {
     this.setData({
       randmos: util.randmo()
