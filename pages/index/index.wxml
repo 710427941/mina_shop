@@ -55,3 +55,21 @@
     </view>
   </block>
 </view>
+
+<view class='index-list-box' wx:for="{{goods}}" wx:for-item="title" wx:key="key">
+  <view class='title'>
+    <view class='xian'></view>
+    <view class='text'>{{title.name}}</view>
+  </view>
+
+  <view class='goods-list'>
+    <view class='goods-list-li' wx:for="{{title.list}}" wx:key="{{item.id}}">
+      <image src='{{domian}}{{item.img}}?{{randmos}}' mode='aspectFit'></image>
+      <view class='goods-list-title'>{{item.name}}</view>
+      <view class='goods-list-warp'>
+        <view class='index-price'>￥{{item.price}}元</view>
+        <view class='index-views'>浏览量{{item.views}}次</view>
+      </view>
+    </view>
+  </view>
+</view>
