@@ -15,7 +15,7 @@ Page({
     goods:[],
     domian: app.globalData.domian + 'uploads/',
     randmos: '',
-    
+    keywords:''
   },
 
   /**
@@ -46,7 +46,16 @@ Page({
     })
   },
   search(e) {
-    console.log(e)
+    this.setData({
+      keywords :e.detail.value
+    })
   },
-  searchGoods() {}
+  searchGoods() {
+    var keywords = this.data.keywords
+    if(keywords != ''){
+      wx.navigateTo({
+        url: '../search/search?keywords=' + keywords
+      })
+    }
+  }
 })

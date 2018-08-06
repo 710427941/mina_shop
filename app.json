@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/category/category",
+    "pages/search/search",    
     "pages/cart/cart",
+    "pages/goods/detail/detail",
     "pages/member/index/index"
   ],
   "window":{

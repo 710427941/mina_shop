@@ -1,2 +1,18 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class='category-warp'>
+  <view class='category-fl' style='height:{{second_height}}px'>
+  <scroll-view scroll-y style='height:{{second_height}}px'>
+    <view class='category-fl-li {{active[index]}}' data-index='{{index}}' data-id="{{item.id}}" bindtap="getSubCategory" wx:for="{{categoryList}}" wx:key="key">{{item.name}}</view>
+  </scroll-view>
+  </view>
+  <scroll-view scroll-y style='height:{{second_height}}px'>
+    <view class='category-fr'>
+        <view class='category-fr-li' wx:for="{{categoryListSub}}" wx:key="key">
+          <image src='{{domian}}{{item.img}}?{{randmos}}' mode='aspectFit'></image>
+          <text>{{item.name}}</text>
+        </view>
+    </view>
+  </scroll-view>
+
+</view>
+

@@ -1,0 +1,85 @@
+.search-title{
+  margin: 30rpx 40rpx;
+}
+
+.search-title text{
+  font-size: 32rpx;
+  background-color: red;
+  color: #fff;
+  display: block;
+  width:160rpx;
+  height: 80rpx; 
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.search-input{
+  display: block;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #333;
+  padding:0 20rpx;
+  border: 1px solid red;
+}
+
+.goods-list{
+  margin: 0 40rpx;
+}
+
+.goods-li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.goods-li image{
+  width: 25%;
+  height: 140rpx;
+}
+
+.goods-li-text{
+  width: 70%;
+  margin-left: 5%;
+}
+
+.goods-li-text text{
+  display: block;
+}
+
+.goods-li-text .title{
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow:hidden;
+}
+.goods-li-text .price{
+  color: red;
+  display: block;
+  font-size: 30rpx;
+  text-align: left;
+  width: 50%;
+}
+
+.goods-li-text-warp{
+  display: flex;
+  flex-direction: row;
+}
+
+.goods-li-text .views{
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  width: 50%;
+  text-align: right;
+}
+
+.good-list-no{
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
