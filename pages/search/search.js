@@ -34,7 +34,12 @@ Page({
  * 页面相关事件处理函数--监听用户下拉动作
  */
   onPullDownRefresh: function () {
-
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading'
+    })
+    this.setData({goods:[],page:1})
+    this.getSearchGoods(this.data.keywords, 1)
   },
 
   /**
@@ -70,7 +75,8 @@ Page({
             title: '没有更新记录了',
             icon: 'none'
           })
-        } 
+        }
+        wx.stopPullDownRefresh()
       }
     }, data => { }, data => { })
   },

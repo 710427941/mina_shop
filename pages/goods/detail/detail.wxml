@@ -1,2 +1,54 @@
 <!--pages/goods/detail/detail.wxml-->
-<text>pages/goods/detail/detail.wxml</text>
+<import src="/utils/wxParse/wxParse.wxml" />
+
+<view class='class-tab'>
+  <text bindtap='tabClick' data-index='0' class='{{tabClass[0]}}'>商品</text>
+  <text bindtap='tabClick' data-index='1' class='{{tabClass[1]}}'>详情</text>
+</view>
+
+<view class='goods-warp'>
+  <view class='parent' wx:if="{{tab == 0}}">
+    <swiper indicator-dots autoplay interval="5000" duration="1000" style='height:{{swiperHeight}}px'>
+      <block wx:for="{{images}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <image src="{{domian}}{{item.img}}?{{randmos}}" class="slide-image" style='height:{{swiperHeight}}px' mode='aspectFit'/>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class='detail-title'>{{detail.name}}</view>
+
+    <view class='detail-price'>￥{{detail.price}}元</view>
+
+    <view class='detail-views'>
+      <text class='store'>库存：{{detail.store}}</text>
+      <text class='views'>浏览：{{detail.views}}</text>
+    </view>
+
+    <view class='detail-calc'>
+      <view class='title'>商品数量：</view>
+      <view class='detail-warp'>
+        <text class='detail-reduce' bindtap='bindMin'>-</text>
+        <input class='detail-number' bindinput='bindTing' value='{{goodsNum}}'></input>
+        <text class='detail-add' bindtap='bindAdd'>+</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='parent' wx:if="{{tab == 1}}">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>
+
+<view class='footer'>
+  <view class='service'>
+    <contact-button class='service-image' type='default-dark' session-from='weapp'></contact-button>
+    <text class='service-text'>客服</text>
+  </view>
+  <view class='favor'>
+    <image src='/images/favorite.png'></image>
+    <text class='favor-text'>客服</text>
+  </view>
+  <button class='add-cart'>加入购物车</button>
+  <button class='add-buy'>立即购买</button>
+</view>

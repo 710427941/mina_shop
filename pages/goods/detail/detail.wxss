@@ -1,1 +1,160 @@
 /* pages/goods/detail/detail.wxss */
+
+@import "/utils/wxParse/wxParse.wxss";
+
+.class-tab{
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.class-tab text{
+  padding:0 40rpx;
+  margin: 0 10rpx;
+  font-size: 32rpx;
+  display: inline-block;
+}
+
+.class-tab .text-normal{
+  color: #333;
+  
+}
+
+.class-tab .text-active{
+  border-bottom: 2px solid red;
+  color: red;
+}
+
+.goods-warp{
+  margin-top: 15rpx;
+  padding-bottom: 120rpx;
+}
+
+.detail-title{
+  margin:30rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.detail-price{
+  margin: 0 30rpx;
+  font-size: 48rpx;
+  color: red;
+  text-align: left;
+}
+
+.detail-views{
+  margin: 30rpx;
+  display: flex;
+}
+
+.detail-views text{
+  font-size: 30rpx;
+  color: #888;
+  width: 50%;
+}
+
+.detail-views .store{
+  text-align: left
+}
+
+.detail-views .views{
+  text-align: right
+}
+
+.detail-calc{
+  display: flex;
+  margin: 0 30rpx;
+}
+
+.detail-calc .title{
+  font-size: 30rpx;
+  color: #333;
+  display: block;
+  width: 40%;
+  line-height: 100rpx;
+}
+
+.detail-calc .detail-warp{
+  width: 60%;
+  display: flex;
+}
+
+.detail-calc .detail-reduce,.detail-calc .detail-add{
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: block;
+  text-align: center;
+  border:1px solid #f1f1f1;
+  font-size: 50rpx;
+  color: #888;
+}
+
+.detail-calc .detail-number{
+  width: 40%;
+  height: 100rpx;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: center;
+  font-size: 40rpx;
+  display: block;
+}
+
+
+.footer{
+  height: 100rpx;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+}
+
+.service,.favor{
+  width: 15%;
+  text-align: center;
+}
+
+.service .service-image{
+  color: #ccc;
+  display: block;
+  padding-top: 10rpx;
+}
+
+.service text,.favor text{
+  font-size: 32rpx;
+  color: #888;
+}
+
+.favor image{
+  height: 40rpx;
+  width: 40rpx;
+  display: block;
+  padding-top: 10rpx;
+  margin: 0 auto;
+}
+.add-cart,.add-buy{
+  width: 35%;
+  font-size: 32rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+}
+
+.add-cart{
+  background-color: #ffea2f;
+  border-radius:0;
+  border: 0;
+}
+
+.add-buy{
+  background-color: #ff3466;
+  color: #fff;
+  border-radius: 0;
+  border: 0;
+}

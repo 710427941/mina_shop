@@ -16,8 +16,8 @@
 .title .text{ margin-left: 20rpx;}
 .goods-list{display: flex; flex-wrap: wrap;}
 .goods-list-li{ width: 50%;}
-.goods-list-li image{ width: 85%;display: block; margin: 0 auto;}
-.goods-list-title{height: 80rpx;font-size: 28rpx;margin: 0 30rpx 10rpx;overflow: hidden; text-overflow:ellipsis;display:-webkit-box;  -webkit-box-orient:vertical; -webkit-line-clamp:2;  color: #888;}
+.goods-list-li image{ width: 85%;display: block; margin: 0 auto;height: 380rpx;}
+.goods-list-title{font-size: 28rpx;margin: 0 30rpx 10rpx;overflow: hidden; text-overflow:ellipsis;display:-webkit-box;  -webkit-box-orient:vertical; -webkit-line-clamp:2;  color: #888;}
 .goods-list-warp{display: flex;margin: 0 30rpx;}
 .index-price{font-size: 26rpx;color: red;width: 50%}
 .index-views{width: 50%;font-size: 24rpx;color: #999;text-align: right;}

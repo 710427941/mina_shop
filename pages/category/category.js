@@ -80,5 +80,11 @@ Page({
       randmos: util.randmo()
     })
   },
+  goList(e){
+    var cid = e.currentTarget.dataset.cid
+    wx.navigateTo({
+      url: '../goods/list/list?cid=' + cid,
+    })
+  }
 
 })

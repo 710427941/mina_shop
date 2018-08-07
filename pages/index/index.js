@@ -57,5 +57,11 @@ Page({
         url: '../search/search?keywords=' + keywords
       })
     }
+  },
+  toDetail(e){
+    var id = e.currentTarget.dataset.gid
+    wx.navigateTo({
+      url: '../goods/detail/detail?id=' + id
+    })
   }
 })
