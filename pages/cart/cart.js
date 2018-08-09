@@ -1,11 +1,16 @@
 // pages/cart/cart.js
+const service = require('../../utils/service.js')
+const util = require('../../utils/util.js')
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    empty:false,
+    carts:[]
   },
 
   /**
@@ -26,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getCarts()
   },
 
   /**
@@ -56,11 +61,25 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getCarts(){
+    var url = 'Cart/cartList'
+    var params = {
+      openid: app.globalData.openid,
+      token: app.globalData.userInfo.token
+    }
+    var method = 'POST'
+    service.service(url, params, method, data => {
+      if (data.code == 200) {
+        this.setData({ empty: true, carts: data.carts })
+        console.log(data)
+      }else{
+        this.setData({empty: false})
+      }
+    }, data => { }, data => { })
+  },
+  clickToHome(){
+    wx.navigateTo({
+      url: '../index/index'
+    })
   }
 })

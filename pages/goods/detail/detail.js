@@ -17,7 +17,8 @@ Page({
     detail: [],
     images: [],
     swiperHeight:0,
-    goodsNum:1
+    goodsNum:1,
+    collection:false
   },
 
   /**
@@ -42,13 +43,17 @@ Page({
     var params = {id: goodsId}
     var method = 'get'
     service.service(url, params, method, data => {
-      if (data.code == 200) {
+      if (data.code == 200) { 
        WxParse.wxParse('article', 'html', data.detail.content, this, 0)
         this.setData({
           images: data.images,
           detail: data.detail
         })
-        // console.log(data)
+        
+        if (data.collect != null){
+          this.setData({ collection: true})
+        }
+
       }
     }, data => { }, data => { })
   },
@@ -81,5 +86,56 @@ Page({
       num = 1
     }
     this.setData({goodsNum:num})
+  },
+  addCollection(e){
+    var gid = e.currentTarget.dataset.id
+    var url = 'Goods/collectionGoods'
+    var params = { 
+      gid: gid,
+      openid:app.globalData.openid,
+      token:app.globalData.userInfo.token
+    }
+    var method = 'POST'
+    service.service(url, params, method, data => {
+      if (data.code == 200) {
+        wx.showToast({
+          title: data.message,
+          icon:'successs'
+        })
+        this.setData({ collection:true})
+      }else if(data.code == 201){
+        wx.showToast({
+          title: data.message,
+          icon: 'successs'
+        })
+        this.setData({ collection:false})
+      }
+    }, data => { }, data => { })
+  },
+  addcart(e){
+    var gid = e.currentTarget.dataset.gid
+    var url = 'Cart/addCart'
+    var params = {
+      gid: gid,
+      goodNum: this.data.goodsNum,
+      openid: app.globalData.openid,
+      token: app.globalData.userInfo.token
+    }
+    var method = 'POST'
+    service.service(url, params, method, data => {
+      if (data.code == 200) {
+        app.globalData.login = true
+        wx.showToast({
+          title: data.message,
+          icon: 'successs'
+        })
+      }else{
+        app.globalData.login = false
+        wx.showToast({
+          title: data.message,
+          icon: 'none'
+        })
+      }
+    }, data => { }, data => { })
   }
 })

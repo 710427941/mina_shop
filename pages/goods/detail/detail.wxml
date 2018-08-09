@@ -45,10 +45,11 @@
     <contact-button class='service-image' type='default-dark' session-from='weapp'></contact-button>
     <text class='service-text'>客服</text>
   </view>
-  <view class='favor'>
-    <image src='/images/favorite.png'></image>
-    <text class='favor-text'>客服</text>
+  <view class='favor' bindtap='addCollection' data-id='{{detail.id}}'>
+
+    <view wx:if="{{!collection}}"><image src='/images/favorite.png'></image><text>收藏</text></view>
+    <view wx:else><image src='/images/favorite1.png'></image><text class='favor-text'>已收藏</text></view>
   </view>
-  <button class='add-cart'>加入购物车</button>
+  <button class='add-cart' bindtap='addcart' data-gid='{{detail.id}}'>加入购物车</button>
   <button class='add-buy'>立即购买</button>
 </view>

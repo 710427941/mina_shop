@@ -131,6 +131,10 @@
   color: #888;
 }
 
+.favor text.favor-text{
+  color: #ff9746;
+}
+
 .favor image{
   height: 40rpx;
   width: 40rpx;
