@@ -1,0 +1,6 @@
+<!--pages/tologin/tologin.wxml-->
+<view class='dologin-warp'>
+  <open-data type="userAvatarUrl" class="avatar"></open-data>
+  <open-data type="userNickName" class="nickname"></open-data>
+</view>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" type="primary" class='dologin'>授权登录</button>

@@ -1,0 +1,30 @@
+/* pages/tologin/tologin.wxss */
+
+.dologin{
+  margin: 20rpx;
+}
+
+.dologin-warp{
+  height: 400rpx;
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 32rpx;
+  padding-top: 20%;
+  box-sizing: content-box;
+}
+
+.avatar{
+  display: block;
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.nickname{
+  text-align: center;
+  margin-top: 10%;
+  font-size: 40rpx;
+  display: block
+}

@@ -24,6 +24,7 @@ Page({
   onLoad: function(options) {
     this.loadIndex()
     this.createRandom()
+    console.log(app.globalData.openid)
   },
   loadIndex() {
     var url = 'Index/index'

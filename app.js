@@ -1,4 +1,5 @@
 //app.js
+const service = require('utils/service.js')
 const APPID = 'wx27bc7841e3a39bdd'
 const APPSECRET = 'a321d9bd4c5c65b42d830ce57e13a855'
 App({
@@ -8,6 +9,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if(res.code){
+          const that = this
           wx.request({
             url: 'https://api.weixin.qq.com/sns/jscode2session',
             data:{
@@ -19,7 +21,10 @@ App({
             method:'GET',
             header: {'content-type': 'application/json'},
             success:function(response){
-              console.log(response);
+              if (response.data.openid != null && response.data.openid != undefined) {
+                that.globalData.openid = response.data.openid
+                that.getUser()
+              }
             },
             fail:function(error){
               console.log('获取用openId失败')
@@ -28,29 +33,47 @@ App({
         }
       }
     })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+  },
+  getUser(){
+    wx.login({
+      success:res=>{
+        if(res.code){
+          var that = this
+          var url = 'User/getUser'
+          var params = {code:res.code,openid:that.globalData.openid}
+          var method = 'POST'
+          service.service(url, params, method, data => {
+            if (data.code == 200) {
+              that.globalData.userInfo = data.data
+              that.globalData.login = true
+              console.log(data)
+            }else if(data.code == 400){
+              wx.showToast({
+                title: '授权跳转中...',
+                icon:'loading',
+                success:function(res){
+                  wx.navigateTo({
+                    url: '../tologin/tologin',
+                  })
+                }
+              })
+            }else{
+              that.globalData.login = false
+              wx.showToast({
+                title: data.message,
+                icon:'none',
+                duration:2000
+              })
             }
-          })
+          }, data => { }, data => { })
         }
       }
     })
   },
   globalData: {
     domian:'http://mina_shop.cc:9906/',
-    userInfo: null
+    userInfo: null,
+    openid:'',
+    login:false
   }
 })
