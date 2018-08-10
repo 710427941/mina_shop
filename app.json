@@ -1,13 +1,18 @@
 {
-  "pages":[        
+  "pages":[
     "pages/index/index",
     "pages/category/category",
     "pages/search/search",  
     "pages/cart/cart",    
     "pages/tologin/tologin",      
     "pages/goods/list/list",
-    "pages/goods/detail/detail",    
-    "pages/member/index/index"
+    "pages/goods/detail/detail", 
+    "pages/member/index/index",
+    "pages/member/money/money",
+    "pages/member/collect/collect",
+    "pages/member/aboutus/aboutus",
+    "pages/order/list/list",
+    "pages/address/list/list"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,13 +1,36 @@
 <!--pages/cart/cart.wxml-->
 <view wx:if="{{empty}}" class='view-empty'>
   <scroll-view scroll-y>
-    <view wx:for="{{carts}}" class='cart-list'>
-      <view class='carts-icon'>
-        <icon wx:if="{{item.selected}}" type='success' size="20"></icon>
+    <view wx:for="{{carts}}" class='cart-list' wx:key="{{index}}">
+      <view class='carts-icon' bindtap='selectBox' data-index='{{index}}'>
+        <icon wx:if="{{item.selected}}"  type='success' size="20"></icon>
         <icon wx:else="{{item.selected}}" type='circle' size="20"></icon>
+      </view>
+      <image src='{{domian}}{{item.img}}?{{randmos}}' mode='aspectFit' class="cart-img" mode='aspectFit'></image>
+      <view class="cart-fr">
+        <view class='title'>{{item.name}}</view>
+        <view class='price'>￥{{item.price}}元</view>
+        <view class='cart-list-warp'>
+          <text class='reduce' bindtap='bindMin' data-index='{{index}}'>-</text>
+          <input class='number' bindinput='bindTing' data-index='{{index}}' value='{{item.num}}'></input>
+          <text class='add' bindtap='bindAdd' data-index='{{index}}'>+</text>
+        </view>
+        <view class='delete' bindtap='binDelete' data-id='{{item.id}}'><image src='/images/delete.png'></image></view>
       </view>
     </view>
   </scroll-view>
+
+  <view class='cart-footer'>
+    <view class='carts-footer-left' bindtap='selectAll'>
+      <view class='icons'>
+       <icon wx:if="{{selectAllStatus}}" type='success' size="20" ></icon>
+        <icon wx:else type='circle' size="20"></icon>
+      </view>
+      <text>全选</text>
+      <text class='price'>￥：{{total}}（免运费）</text>
+    </view>
+    <view class='button'>立即结算</view>
+  </view>
 </view>
 
 <view wx:else class='cars-no'>

@@ -1,5 +1,9 @@
 /* pages/cart/cart.wxss */
 
+.view-empty{
+  padding-bottom: 120rpx;
+}
+
 .cars-no{
   text-align: center;
 }
@@ -27,4 +31,141 @@
   background-color: #1aad19;
   color: #fff;
   border-radius: 5px;
+}
+
+.cart-list{
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+
+.cart-list:last-child{
+  border-bottom: 0;
+}
+
+.carts-icon{
+  width: 15%;
+  height: 140rpx;
+  text-align: center;
+  line-height: 140rpx;
+}
+
+.cart-img{
+  width: 25%;
+  height: 160rpx;
+}
+
+.cart-fr{
+  width: 60%;
+  position: relative;
+}
+
+.cart-fr .title{
+  font-size: 32rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  margin-bottom: 10rpx;
+}
+
+.cart-fr .price{
+  font-size: 38rpx;
+  color: red;
+  margin: 5px 0;
+}
+
+.cart-list-warp{
+  display: flex;
+  width: 65%;
+}
+
+.cart-list-warp .reduce,.cart-list-warp .add{
+  width: 25%;
+  height: 80rpx;
+  line-height:80rpx;
+  display: block;
+  text-align: center;
+  border:1px solid #f1f1f1;
+  font-size: 50rpx;
+  color: #888;
+}
+
+.cart-list-warp .number{
+  width: 47%;
+  height:80rpx;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: center;
+  font-size: 40rpx;
+  margin: 0 auto;
+}
+
+.cart-fr .delete{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 60rpx;
+  z-index: 1;
+}
+
+.cart-fr .delete image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cart-footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  z-index: 99;
+  line-break: 100rpx;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+}
+
+.cart-footer .carts-footer-left{
+  width: 70%;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+}
+.carts-footer-left .icons{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 20rpx;
+}
+
+.carts-footer-left .icons icon{
+  display: block;
+  margin-top: 25rpx;
+}
+
+.cart-footer .button{
+  width: 30%;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #1aad19;
+  color: #fff;
+}
+
+.carts-footer-left text{
+  font-size: 32rpx;
+  color: #888;
+}
+
+.carts-footer-left text.price{
+  color: red;
 }

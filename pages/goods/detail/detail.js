@@ -133,7 +133,35 @@ Page({
         app.globalData.login = false
         wx.showToast({
           title: data.message,
-          icon: 'none'
+          icon: 'none',
+          success:function(){
+           wx.switchTab({
+             url: '../../member/index/index'
+           })
+          }
+        })
+      }
+    }, data => { }, data => { })
+  },
+  addbuy(){
+    var url = 'Cart/checkCart'
+    var params = {
+      goodNum: this.data.goodsNum,
+      gid: this.data.detail.id,
+      openid: app.globalData.openid,
+      token: app.globalData.userInfo.token
+    }
+    var method = 'POST'
+    service.service(url, params, method, data => {
+      if (data.code == 200) {
+        wx.switchTab({
+          url: '../../cart/cart',
+        })
+      } else {
+        wx.showToast({
+          title: data.msg,
+          icon: 'none',
+          duration: 2000
         })
       }
     }, data => { }, data => { })

@@ -51,5 +51,5 @@
     <view wx:else><image src='/images/favorite1.png'></image><text class='favor-text'>已收藏</text></view>
   </view>
   <button class='add-cart' bindtap='addcart' data-gid='{{detail.id}}'>加入购物车</button>
-  <button class='add-buy'>立即购买</button>
+  <button class='add-buy' bindtap='addbuy'>立即购买</button>
 </view>

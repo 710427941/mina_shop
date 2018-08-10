@@ -13,38 +13,39 @@
   </view>
 </view>
 
+
 <view class='func-area'>
-  <view bindtap='' class='func-area-li'>
+  <view bindtap='' class='func-area-li'><navigator open-type="switchTab" url='../category/category'>
     <image src='/images/icon_all.png' mode='aspectFit'></image>
     <text>全部分类</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+  </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="switchTab" url='../cart/cart'>
     <image src='/images/icon_carticon.png' mode='aspectFit'></image>
     <text>购物车</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+   </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="navigate" url='../address/list/list'>
     <image src='/images/icon_seller.png' mode='aspectFit'></image>
-    <text>地址管理</text>
+  </navigator><text>地址管理</text>
   </view>
-  <view bindtap='' class='func-area-li'>
+  <view bindtap='' class='func-area-li'><navigator open-type="navigate" url='../member/money/money'>
     <image src='/images/icon_shopping.png' mode='aspectFit'></image>
     <text>我的钱包</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+  </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="navigate" url='../order/list/list'>
     <image src='/images/icon_orders.png' mode='aspectFit'></image>
     <text>我的订单</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+  </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="navigate" url='../member/collect/collect'>
     <image src='/images/icon_ssc.png' mode='aspectFit'></image>
     <text>我的收藏</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+  </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="switchTab" url='../member/index/index'>
     <image src='/images/icon_collect.png' mode='aspectFit'></image>
     <text>个人中心</text>
-  </view>
-  <view bindtap='' class='func-area-li'>
+  </navigator></view>
+  <view bindtap='' class='func-area-li'><navigator open-type="navigate" url='../member/aboutus/aboutus'>
     <image src='/images/icon_membericon.png' mode='aspectFit'></image>
-    <text>关于我们</text>
+    </navigator><text>关于我们</text>
   </view>
 
 </view>
