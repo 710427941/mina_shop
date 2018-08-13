@@ -12,6 +12,7 @@
     "pages/member/collect/collect",
     "pages/member/aboutus/aboutus",
     "pages/order/list/list",
+    "pages/order/submit/submit",
     "pages/address/list/list"
   ],
   "window":{

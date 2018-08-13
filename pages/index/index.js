@@ -26,20 +26,27 @@ Page({
     this.createRandom()
   },
   loadIndex() {
-    var url = 'Index/index'
-    var params = {}
-    var method = 'get'
-    service.service(url, params, method, data => {
-      if (data.code == 200) {
-        this.setData({
-          banner: data.banner,
-          ad:data.ad,
-          goods:data.goods
-        })
-      }
-    }, data => {}, data => {})
-  },
 
+    var banner = wx.setStorageSync('banner')
+    var ad = wx.setStorageSync('ad')
+    var goods = wx.setStorageSync('goods')
+
+    if(banner && ad && goods){
+      this.setData({ banner: banner, ad: ad, goods: goods })
+    }else{
+      var url = 'Index/index'
+      var params = {}
+      var method = 'get'
+      service.service(url, params, method, data => {
+        if (data.code == 200) {
+          this.setData({ banner: data.banner, ad: data.ad, goods: data.goods })
+          wx.setStorageSync('banner', data.banner)
+          wx.setStorageSync('ad', data.ad)
+          wx.setStorageSync('goods', data.goods)
+        }
+      }, data => { }, data => { })
+    }
+  },
   createRandom() {
     this.setData({
       randmos: util.randmo()

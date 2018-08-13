@@ -76,7 +76,6 @@ Page({
       if (data.code == 200) {
         this.setData({ empty: true, carts: data.carts })
         this.sum()
-        console.log(data)
       }else{
         this.setData({empty: false})
       }
@@ -228,5 +227,27 @@ Page({
         }
       }
     })
+  },
+  topay(){
+    
+    var carts = this.data.carts
+    if(carts.length<=0){
+      wx.showToast({
+        title: '请先勾选商品',
+        icon:'none'
+      })
+      return
+    }else{
+      var cartsIds = []
+      for(var i = 0; i<carts.length; i++){
+        if(carts[i].selected){
+          cartsIds.push(carts[i].id)
+        }
+      }
+    }
+    cartsIds = cartsIds.join(',')
+    app.globalData.cartsIds = cartsIds
+    app.globalData.amount = this.data.total
+    wx.navigateTo({url:'../order/submit/submit'})
   }
 })

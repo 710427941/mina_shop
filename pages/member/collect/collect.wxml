@@ -1,2 +1,28 @@
 <!--pages/member/collect/collect.wxml-->
-<text>pages/member/collect/collect.wxml</text>
+<view wx:if="{{!empty}}">
+  <view class='order-item' wx:for='{{collectList}}' wx:key='{{item.id}}'>
+
+  <view class='carts-item'>
+    <view>
+      <!-- 图片 -->
+      <image src='{{domian}}uploads/{{item.img}}' class='carts-image' mode='aspectFill'></image>
+    </view>
+
+    <view class='carts-text'>
+      <!-- 标题 -->
+      <text class='carts-title'>{{item.name}}</text>
+      <!-- 价格 -->
+      <view class='carts-subtitle'>
+        <text>￥{{item.price}}</text>
+      </view>
+      <!-- 删除按钮 -->
+      <view class='order-footer'>
+        <image src='/images/delete.png' bindtap='deleteGoods' data-id='{{item.id}}' class='image-delete'></image>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+</view>
+<view wx:else>亲，您还没有收藏商品哦！！</view>
