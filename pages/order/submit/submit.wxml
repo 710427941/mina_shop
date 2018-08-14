@@ -1,2 +1,17 @@
 <!--pages/order/submit/submit.wxml-->
-<text>pages/order/submit/submit.wxml</text>
+<view class='order-warp'>
+  <view class='goods-list' wx:for="{{cartList}}" wx:key="{{index}}">
+    <image src='{{domian}}{{item.img}}' mode='aspectFit'></image>
+    <view class='goods-list-fr'>
+      <view class='title'>{{item.name}}</view>
+      <view class='price'>￥{{item.price}}元</view>
+      <view class='num'>x{{item.num}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view class='cart-footer'>
+  <text class='price'>￥：{{amount}}（免运费）</text>
+  <view class='button' bindtap='submit'>立即结算</view>
+</view>

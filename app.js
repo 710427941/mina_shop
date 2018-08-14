@@ -1,7 +1,5 @@
 //app.js
 const service = require('utils/service.js')
-const APPID = 'wx27bc7841e3a39bdd'
-const APPSECRET = 'a321d9bd4c5c65b42d830ce57e13a855'
 App({
   onLaunch: function () {
     // 登录
@@ -12,28 +10,13 @@ App({
           var that = this
           var url = 'User/getOpenid'
           var params = {
-            appid: APPID,
-            secret: APPSECRET,
-            grant_type: 'authorization_code',
             js_code: res.code
           }
           var method = 'post'
           service.service(url, params, method, data => {
             if (data.code == 200) {
               that.globalData.openid = data.result
-
-              wx.getUserInfo({
-                success: function (successData) {
-                  //用户信息进行赋值
-                  // console.log(data)
-                  that.globalData.userInfo = successData.userInfo
-                  //获取数据库用户信息，类似于用户登录功能
-                  that.getUser()
-                },
-                fail: function (failData) {
-                  console.log('用户拒绝授权')
-                }
-              })
+              that.getUser()
             } else {
               console.log('获取用户openId失败')
             }
@@ -77,7 +60,9 @@ App({
               that.globalData.login = true
 
             }else if(data.code == 400){
-              that.register()
+              wx.navigateTo({
+                url: '../tologin/tologin',
+              })
             }else{
               that.globalData.login = false
               wx.showToast({
@@ -91,30 +76,14 @@ App({
       }
     })
   },
-  // 用户注册
-  register: function () {
-    var url = 'User/register'
-    var method = 'POST'
-    var params = {
-      openid: this.globalData.openid,
-      nickname: this.globalData.userInfo.nickName,
-      head: this.globalData.userInfo.avatarUrl
-    }
-    service.service(url, params, method, data => {
-      if (data.code == 200) {
-        this.globalData.userInfo = data.data
-        this.globalData.login = true
-      } else {
-        this.globalData.login = false
-      }
-    }, data => { }, data => { })
-  },
   globalData: {
     domian:'http://mina_shop.cc:9906/',
     userInfo: null,
     openid:'',
     login:false,
     cartsIds:'',
-    amount:0.00
+    amount:0.00,
+    wxdata:[],
+    order:[]
   }
 })

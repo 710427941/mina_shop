@@ -11,13 +11,17 @@ Page({
    */
   data: {
     cartsIds:[],
-    amount:0.00
+    amount:0.00,
+    cartList:[],
+    domian: app.globalData.domian + 'uploads/',
+    wxdata:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     this.setData({
       cartsIds: app.globalData.cartsIds,
       amount: app.globalData.amount
@@ -75,15 +79,51 @@ Page({
   getCarts(){
     var url = 'Cart/getCarts'
     var params = {
-      cartIds: this.data.cartIds,
+      cartsIds: this.data.cartsIds,
       openid : app.globalData.openid,
       token: app.globalData.userInfo.token
     }
     var method = 'post'
     service.service(url, params, method, data => {
       if (data.code == 200) {
-        console.log(data)
+        this.setData({
+          cartList:data.info
+        })
       }
     }, data => { }, data => { })
+  },
+  submit(){
+    var url = 'Pay/submitOrder'
+    var params = {
+      cartsIds: this.data.cartsIds,
+      amount: this.data.amount,
+      openid: app.globalData.openid,
+      token: app.globalData.userInfo.token
+    }
+    var method = 'post'
+    service.service(url, params, method, data => {
+      if (data.code == 200) {
+        console.log(data)
+        app.globalData.wxdata = data.data
+        app.globalData.order = data.order
+        this.pay()
+      }
+    }, data => { }, data => { })
+  },
+  pay(){
+    
+    wx.requestPayment({
+      'timeStamp': app.globalData.wxdata.timeStamp + '',
+      'nonceStr': app.globalData.wxdata.nonceStr + '',
+      'package': app.globalData.wxdata.package + '',
+      'signType': 'MD5',
+      'paySign': app.globalData.wxdata.sign + '',
+      'success': function (res) {
+        console.log(res)
+      },
+      'fail': function (res) {
+        console.log(res)
+      }
+    })
   }
 })

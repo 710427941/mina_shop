@@ -40,7 +40,7 @@ Page({
   },
   getDetail(goodsId){
     var url = 'Goods/detail'
-    var params = {id: goodsId}
+    var params = { id: goodsId, openid: app.globalData.openid}
     var method = 'get'
     service.service(url, params, method, data => {
       if (data.code == 200) { 
@@ -50,8 +50,10 @@ Page({
           detail: data.detail
         })
         
-        if (data.collect != null){
-          this.setData({ collection: true})
+        if (data.collect == null){
+          this.setData({ collection: false})
+        }else{
+          this.setData({ collection: true })
         }
 
       }
