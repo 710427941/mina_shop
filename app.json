@@ -13,6 +13,7 @@
     "pages/member/aboutus/aboutus",
     "pages/order/list/list",
     "pages/order/submit/submit",
+    "pages/order/result/result",
     "pages/address/list/list"
   ],
   "window":{

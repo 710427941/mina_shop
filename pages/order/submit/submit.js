@@ -104,7 +104,7 @@ Page({
     service.service(url, params, method, data => {
       if (data.code == 200) {
         console.log(data)
-        app.globalData.wxdata = data.data
+        app.globalData.wxdata = data.data.wdata
         app.globalData.order = data.order
         this.pay()
       }
@@ -119,10 +119,14 @@ Page({
       'signType': 'MD5',
       'paySign': app.globalData.wxdata.sign + '',
       'success': function (res) {
-        console.log(res)
+        wx.navigateTo({
+          url: '../result/result?stat=1',
+        })
       },
       'fail': function (res) {
-        console.log(res)
+        wx.navigateTo({
+          url: '../result/result?stat=0',
+        })
       }
     })
   }

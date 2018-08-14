@@ -1,0 +1,7 @@
+<!--pages/order/result/result.wxml-->
+<view wx:if="{{empty}}">
+  成功
+</view>
+<view wx:else>
+  失败
+</view>
